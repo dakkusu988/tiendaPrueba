@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Listado Productos</title>
+        <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.classless.min.css">
+    </head>
+
+    <body style="padding: 20px;">
+
+        <h1>Listado de Todos los Productos</h1>
+        
+        <p></p> <!-- Espacio de linea -->
+
+        <a href="{% url 'anadirProductos' %}" role="button" style="background-color: green;"> Añadir un Producto Nuevo </a>
+        <a href="{% url 'listadoProductos' %}" role="button" style="background-color: red;">Todos los Productos</a>
+
+        {% for producto in object_list %}
+            <article>    
+
+                <h3> {{ producto.nombre }} </h3>
+                <a href="{% url 'detallesProductos' pk=producto.pk %}" role="button">Detalles</a>
+
+            </article>
+        {% endfor %}
+    
+    </body>
+</html>

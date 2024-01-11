@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Detalles Producto</title>
+        <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.classless.min.css">
+    </head>
+
+    <body style="padding: 20px;">
+
+        <h2>Detalles del Producto</h2>
+
+        <a href="{% url 'listadoProductos' %}" role="button">Volver al Listado Completo</a>
+        
+        <article>
+
+            <p><strong>Nombre:</strong> {{ object.nombre }}</p>
+            <p><strong>Modelo:</strong> {{ object.modelo }}</p>
+            <p><strong>Unidades:</strong> {{ object.unidades }}</p>
+            <p><strong>Precio:</strong> {{ object.precio }}</p>
+            <p><strong>VIP:</strong> {{ object.VIP_producto }}</p>
+            <p><strong>Marca:</strong> {{ object.marca_producto }}</p>
+
+        </article>
+
+    </body> 
+</html>
