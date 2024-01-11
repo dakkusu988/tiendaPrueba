@@ -12,7 +12,6 @@ class listadoProductos(ListView):
     model = Producto
     template_name = 'tiendaprueba/listadoProductos.html'
 
-
 class anadirProductos(CreateView):
     model = Producto
     fields = ['nombre', 'modelo', 'unidades', 'precio', 'VIP_producto', 'marca_producto']
@@ -25,4 +24,22 @@ class anadirProductos(CreateView):
 class detallesProductos(DetailView):
     model = Producto
     template_name = 'tiendaprueba/detallesProductos.html'
+
+class editarProductos(UpdateView):
+    model = Producto
+    fields = ['nombre', 'modelo', 'unidades', 'precio', 'VIP_producto', 'marca_producto']
+    template_name = "tiendaprueba/editarProductos.html"
+
+    def get_success_url(self):
+        return reverse('listadoProductos')
     
+class borrarProductos(DeleteView):
+    model = Producto
+    template_name = 'tiendaprueba/borrarProductos.html'
+    
+    # Puedes redirigir a una vista específica usando reverse_lazy
+    success_url = reverse_lazy("listadoProductos")
+
+    # Mensaje de éxito al borrar
+    def get_success_message(self):
+        return "El producto ha sido eliminado."

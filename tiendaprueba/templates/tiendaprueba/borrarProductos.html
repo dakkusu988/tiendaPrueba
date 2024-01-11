@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Eliminar {{ object.nombre }}</title>
+        <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.classless.min.css">
+    </head>
+
+    <body style="padding: 20px;">
+
+        <h1>Eliminar {{ object.nombre }}</h1>
+
+        <a href="{% url 'listadoProductos' %}" role="button">Volver al Listado Completo</a>
+
+        <form action="" method="post">
+            
+            {% csrf_token %}
+            
+            <article>
+                <p>¿Estás seguro  de que quieres ELIMINAR este producto?</p>
+                <p> <b>ESTA ACCIÓN NO TIENE VUELTA ATRÁS.</b> </p>
+            </article>
+            
+            <input type="submit" value="Confirmar Borrado">
+        
+        </form>
+
+    </body>
+</html>

@@ -22,6 +22,9 @@
             <p><strong>VIP:</strong> {{ object.VIP_producto }}</p>
             <p><strong>Marca:</strong> {{ object.marca_producto }}</p>
 
+            <a href="{% url 'editarProductos' pk=object.pk %}" role="button" style="background-color: rgb(255, 255, 0); color: black;">Editar</a>
+            <a href="{% url 'borrarProductos' pk=object.pk %}" role="button" style="background-color: rgb(160, 0, 0);">Borrar</a>
+
         </article>
 
     </body> 
